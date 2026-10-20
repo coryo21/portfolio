@@ -1,6 +1,7 @@
 :root {
+	color-scheme: light dark;
 	--color-accent: oklch(55% 0.15 250);
-	--border-gray: oklch(80% 3% 200);
+	--border-gray: oklch(50% 10% 200 / 40%);
 	accent-color: var(--color-accent);
 }
 
@@ -49,11 +50,11 @@ nav {
 	a:hover {
 		border-bottom: 0.4em solid var(--color-accent);
 		padding-bottom: 0.1em;
-		background-color: oklch(from var(--color-accent) 95% 5% h);
+		background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 	}
 }
 
-input, textarea, button {
+input, textarea, button, select {
 	font: inherit;
 }
 
@@ -71,6 +72,13 @@ form {
 	button {
 		grid-column: 1 / -1;
 	}
+}
+
+.color-scheme {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	font-size: 80%;
 }
 
 .projects {
@@ -136,7 +144,7 @@ form {
 		li {
 			padding: 0.2em 0.8em;
 			border-radius: 1em;
-			background-color: oklch(from var(--color-accent) 95% 5% h);
+			background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 		}
 	}
 }
