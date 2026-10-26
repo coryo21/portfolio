@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Project 2: Persuasive or Deceptive?</title>
+    <style>
+      :root {
+        --color-neutral-95: hsl(220 10% 95%);
+        --color-neutral-90: hsl(220 10% 90%);
+        --color-neutral-80: hsl(220 10% 80%);
+        --color-neutral-70: hsl(220 10% 70%);
+        --color-neutral-60: hsl(220 10% 60%);
+        --color-neutral-50: hsl(220 10% 50%);
+        --color-neutral-40: hsl(220 10% 40%);
+        --color-neutral-30: hsl(220 10% 30%);
+        --color-neutral-20: hsl(220 10% 20%);
+        --color-neutral-10: hsl(220 10% 10%);
+      }
+
+      html {
+        font: 100%/1.5 system-ui;
+        counter-reset: figure;
+        background: var(--color-neutral-95);
+        max-width: min(75vw, 80em);
+        margin: 0 auto;
+      }
+
+      /* Headings */
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        line-height: 1.1;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 1px solid var(--color-neutral-80);
+        padding-bottom: 0.2em;
+      }
+
+      h1 {
+        margin-block: 1em 0.5rem;
+        font-size: clamp(2.5em, 150% + 2vh + 2vw, 10vmin);
+        font-weight: 800;
+
+        small {
+          display: block;
+          width: fit-content;
+          padding: 0.2em 0.5em;
+          margin-inline: auto;
+          color: white;
+          background: var(--color-neutral-40);
+          font-size: 40%;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+      }
+
+      h2 {
+        font-size: 180%;
+        color: var(--color-neutral-30);
+      }
+
+      h3 {
+        font-size: 130%;
+      }
+
+      /* Lists */
+
+      ul,
+      ol {
+        padding-inline-start: 2em;
+      }
+
+      li {
+        &::marker {
+          color: var(--color-neutral-40);
+        }
+
+        + li {
+          margin-top: 0.2em;
+        }
+      }
+
+      /* Sectioning elements */
+
+      header {
+        padding-block: 1em;
+        text-align: center;
+      }
+
+      main {
+        background: white;
+        color: var(--color-neutral-20);
+        border-radius: 1rem;
+        padding: 0.1rem 2rem;
+      }
+
+      /* Figures */
+
+      figure {
+        margin: 1em 0;
+        padding: 0.5rem;
+        margin-inline: -0.5em;
+        border: 1px solid var(--color-neutral-80);
+        box-shadow: 0 0.1em 0.2em var(--color-neutral-95);
+        text-align: center;
+        background: white;
+
+        > figcaption {
+          font: 500 75% var(--font-sans);
+          background: var(--color-neutral-95);
+          padding: 0.5rem;
+          margin: -0.5rem;
+          margin-top: 0.5rem;
+          counter-increment: figure;
+          text-align: left;
+
+          &::before {
+            content: 'Figure ' counter(figure) ': ';
+            font-weight: bold;
+            color: var(--color-neutral-40);
+          }
+
+          a:not(:hover, :focus, :active) {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-color: color-mix(
+              in lab,
+              currentColor,
+              transparent 70%
+            );
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>
+        <small>Project 2</small>
+        Persuasive or Deceptive Visualization?
+      </h1>
+
+      <p><strong>Cory Ornelas</strong><br /><em>caornelas@ucsd.edu</em></p>
+    </header>
+
+    <main>
+      <h2>Proposition: The world is making real progress on cutting carbon emissions.</h2>
+
+      <p>Both visualizations use the World Bank climate change indicators for the world and a few countries from 1990 to 2018, from the <a href="https://github.com/light-and-salt/World-Bank-Data-by-Indicators">cleaned indicator repository</a> linked in the assignment.</p>
+
+      <section>
+        <h3>FOR the Proposition</h3>
+
+        <figure>
+          <img src="for.png" alt="Top: line chart of world CO2 emissions per dollar of GDP, indexed so 1990 equals 100, falling to 67 by 2018. Bottom: bar chart of the change in CO2 emissions from 2005 to 2018 for seven advanced economies, from 34% lower for the United Kingdom to 9% lower for Japan." style="max-width: 100%" />
+          <figcaption>Carbon per dollar of world output fell 33% from 1990 to 2018, and every major advanced economy emitted less CO<sub>2</sub> in 2018 than in 2005.</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li><strong>Carbon per dollar instead of total emissions. Score −2.</strong> This chart shows how much CO<sub>2</sub> the world puts out for every dollar of GDP, which dropped 33%. Total emissions actually went up 65% over the same years, but the title says the economy is "decarbonizing," and most people will read that as emitting less. I tried emissions per person first, but that went up too, so it didn't work for this side.</li>
+          <li><strong>Indexing to 1990 and starting the y axis at 60. Score −1.</strong> Setting 1990 to 100 makes the drop easy to read, but it hides the real units. Starting the axis at 60 makes the line fall through most of the chart. The axis is still labeled, so it's there if you look closely.</li>
+          <li><strong>Starting the country comparison in 2005. Score −1.5.</strong> Each bar is the percent change from 2005 to 2018. That year is right around when emissions peaked in the US and Japan, so every bar comes out negative. Starting at 1990 would have the US up 3% and Japan up 1%.</li>
+          <li><strong>Leaving out China and India. Score −1.5.</strong> Their emissions grew 77% and 114% over the same period, which would flip the whole message. The subtitle says "every major advanced economy," which is true for the countries shown, so it's hard to call out.</li>
+          <li><strong>Green, exact labels and a source note. Score +1.5.</strong> Green reads as good news, and the exact percentages and World Bank source make the chart look trustworthy. These are honest choices on their own, but they make the selective parts easier to believe.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>AGAINST the Proposition</h3>
+
+        <figure>
+          <img src="against.png" alt="Top: area chart of global CO2 emissions rising from about 20.6 billion tonnes in 1990 to 34 billion tonnes in 2018, with dashed lines marking the Kyoto Protocol in 1997, the Copenhagen Accord in 2009 and the Paris Agreement in 2015. Bottom: area chart on a scale from 0 to 100% showing renewables holding at about 17% of global energy use from 1990 to 2015." style="max-width: 100%" />
+          <figcaption>Global CO<sub>2</sub> emissions rose 65% between 1990 and 2018 despite three major climate agreements, and the renewable share of the world's energy barely moved (17.1% to 17.6%).</figcaption>
+        </figure>
+
+        <p>Design Decisions and Rationale:</p>
+
+        <ul>
+          <li><strong>Total emissions starting at zero. Score +2.</strong> Total CO<sub>2</sub> is what actually causes warming, so I converted kilotons to billions of tonnes and calculated the 65% increase since 1990. Starting at zero shows the rise at its real size. This was the most honest choice in the project and also the most convincing, which was kind of surprising.</li>
+          <li><strong>Marking Kyoto, Copenhagen and Paris. Score −0.5.</strong> The dashed lines make it look like each deal failed, since emissions just keep climbing past them. None of these deals had a binding global cap though, and Paris didn't take effect until the end of 2016, so it's a little unfair.</li>
+          <li><strong>"Emissions never stopped rising." Score −1.</strong> It matches the overall trend, but it isn't literally true. Emissions dipped in 2009 and stayed flat in 2015 and 2016. "Emissions keep rising" would be more accurate, but "never stopped" sticks better.</li>
+          <li><strong>Renewables on a 0 to 100% scale. Score −1.</strong> Everything that isn't renewable is stacked as a big gray block above the green, so 17% looks tiny and flat. I also used total energy instead of electricity, where the renewable share actually went from 19% to 22%. Both are real World Bank numbers, and I just picked the one that fit.</li>
+          <li><strong>Red for emissions, green for renewables. Score +0.5.</strong> Red makes the rising line feel like a warning. Using the same green from the FOR side makes it obvious the good part isn't growing. The colors add emotion but don't change any numbers.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Final Reflection</h2>
+
+        <p>The AGAINST side was a little easier to analyze. The total emissions on a normal chart starting at zero were convincing on their own, so most of the work was the title and annotations. The FOR side was more challenging because almost every honest measure increases. I had to change the question from whether emissions are falling to whether each dollar of output is getting cleaner or whether rich countries are cutting back. The surprising part is that the numbers are consistent on the FOR charts. Everything is accurate and sourced, and all the persuasion comes from which metric, which year and which countries I picked.</p>
+
+        <p>That changed how I think about ethical visualization. I’d consider a chart ethical if another researcher would come to similar conclusions after seeing the data I left out. The carbon per dollar chart and the 2005 bar chart both fail that test, because seeing total emissions or China and India would probably flip what you think. The total emissions chart passes, since adding the other numbers just adds detail without changing the takeaway.</p>
+
+        <p>I don’t think any single technique defines a clear ethical boundary. A cut off axis or a hand-picked year can be fine in one chart and misleading in another. The line I’d draw is the gap between what a chart shows and what it makes people believe. Bold colors, confident titles and annotations are fine when they point at the main pattern. They cross an ethical line when they only work because the reader doesn’t know what got left out.</p>
+      </section>
+    </main>
+  </body>
+</html>
