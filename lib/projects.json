@@ -1,0 +1,74 @@
+[
+  {
+    "title": "Project 2: Is the World Cutting Carbon Emissions?",
+    "year": "2026",
+    "image": "https://coryo21.github.io/portfolio/project2/for.png",
+    "description": "A for-and-against pair of visualizations built from World Bank climate indicators, testing the claim that the world is making real progress on cutting CO2 emissions."
+  },
+  {
+    "title": "Project 1: What Kind of Food Is on Our Grocery Shelves?",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "An expository donut chart from GroceryDB showing that two-thirds or more of the products at Whole Foods, Walmart, and Target are ultra-processed."
+  },
+  {
+    "title": "Lab 4: JavaScript II",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Rendering projects from a JSON file with reusable JavaScript functions and loading live GitHub profile stats from the GitHub API."
+  },
+  {
+    "title": "Lab 3: JavaScript I",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "An automatic navigation bar, a light/dark theme switcher saved in localStorage, and a contact form that builds a mailto link."
+  },
+  {
+    "title": "Lab 2: CSS Styling",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Styling the portfolio with CSS grid, nesting, an accent color, and a responsive projects layout."
+  },
+  {
+    "title": "Lab 1: HTML Foundations",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Building the first version of this portfolio site in HTML and publishing it with GitHub Pages."
+  },
+  {
+    "title": "DSC 232R Big Data Analysis",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Placeholder: coursework analyzing large datasets with Spark in the UC San Diego data science program."
+  },
+  {
+    "title": "CISC Course Website Refresh",
+    "year": "2025",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Placeholder: reorganizing course materials and pages for Computer Information Science classes."
+  },
+  {
+    "title": "Student Success Dashboard",
+    "year": "2025",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Placeholder: a simple dashboard summarizing course completion and grade trends."
+  },
+  {
+    "title": "Python Practice Exercises",
+    "year": "2025",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Placeholder: a set of introductory Python exercises written for community college students."
+  },
+  {
+    "title": "Business Statistics Case Study",
+    "year": "2024",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Placeholder: a case study applying descriptive statistics to small-business sales data."
+  },
+  {
+    "title": "Spreadsheet Budget Model",
+    "year": "2024",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Placeholder: a personal budget model with formulas and charts built in a spreadsheet."
+  }
+]
