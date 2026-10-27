@@ -93,32 +93,12 @@ form {
 		gap: 0.5em;
 	}
 
-	h2,
-	h3 {
+	h2 {
 		margin: 0;
 	}
 
 	p {
 		margin: 0;
-	}
-}
-
-#profile-stats dl {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	margin: 0;
-
-	dt {
-		grid-row: 1;
-		font-size: 75%;
-		text-transform: uppercase;
-		color: oklch(55% 0 0);
-	}
-
-	dd {
-		grid-row: 2;
-		margin: 0;
-		font-size: 200%;
 	}
 }
 

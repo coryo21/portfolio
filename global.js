@@ -93,19 +93,13 @@ export async function fetchJSON(url) {
 }
 
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
-  if (!containerElement) return;
   containerElement.innerHTML = '';
-  if (!/^h[1-6]$/.test(headingLevel)) headingLevel = 'h2';
-  if (!projects?.length) {
-    containerElement.innerHTML = '<p>No projects to show yet.</p>';
-    return;
-  }
   for (let project of projects) {
     const article = document.createElement('article');
     article.innerHTML = `
       <${headingLevel}>${project.title}</${headingLevel}>
-      <img src="${project.image ?? ''}" alt="${project.title}">
-      <p>${project.description ?? ''}</p>
+      <img src="${project.image}" alt="${project.title}">
+      <p>${project.description}</p>
     `;
     containerElement.appendChild(article);
   }
