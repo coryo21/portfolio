@@ -1,0 +1,34 @@
+:root { --bg: #fcfcfb; --fg: #222; --muted: #666; --line: #e3e3e0; --card: #f4f4f1; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #1b1b1c; --fg: #eee; --muted: #aaa; --line: #333; --card: #242426; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #1b1b1c; --fg: #eee; --muted: #aaa; --line: #333; --card: #242426; color-scheme: dark; }
+
+body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.5 system-ui, sans-serif; }
+main { max-width: 1100px; margin: 0 auto; padding-block: 24px 48px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1 { margin: 0 0 4px; font-size: 36px; }
+h2 { font-size: 22px; margin: 24px 0 12px; }
+.sub, .hint { color: var(--muted); font-size: 16px; }
+
+.controls { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin: 12px 0 8px; }
+select, input { font: inherit; padding: 4px 10px; }
+#search { flex: 1; min-width: 200px; }
+
+.pies { display: flex; flex-wrap: wrap; gap: 32px; align-items: center; }
+figure { margin: 0; text-align: center; }
+figure svg { width: 260px; max-width: 100%; overflow: visible; }
+figcaption { font-weight: 600; margin-top: 6px; }
+
+path { transition: 300ms; cursor: pointer; stroke: var(--bg); stroke-width: 0.6; }
+path.faded { opacity: 0.3 !important; }
+path.dim { opacity: 0.25; }
+path.selected { stroke: var(--fg); stroke-width: 1.2; }
+
+.legend { flex: 1; min-width: 260px; list-style: none; margin: 0; padding: 12px 16px; border: 1px solid var(--line); border-radius: 8px; display: grid; gap: 6px; }
+.legend li { display: grid; grid-template-columns: 14px 1fr auto; gap: 8px; align-items: center; cursor: pointer; font-size: 15px; padding: 2px 4px; border-radius: 4px; }
+.legend li.selected { background: var(--card); font-weight: 700; }
+.legend .swatch { width: 14px; height: 14px; border-radius: 50%; background: var(--color); }
+.legend em { font-style: normal; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.countries { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.country { background: var(--card); border-radius: 8px; padding: 10px 14px; border-left: 0; }
+.country h3 { margin: 0 0 4px; font-size: 16px; }
+.country p { margin: 0; font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dollars and Years</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+</head>
+<body>
+<main>
+  <h1>Dollars and Years</h1>
+  <p class="sub">Does spending more on health buy a longer life? The left pie splits the world's health spending by region. The right pie splits the world's people. Health spending is in PPP dollars. Source: World Bank WDI.</p>
+
+  <div class="controls">
+    <label>Year
+      <select id="year"></select>
+    </label>
+    <input id="search" type="search" placeholder="Search countries">
+  </div>
+
+  <div class="pies">
+    <figure>
+      <svg id="spendPie" viewBox="-50 -50 100 100"></svg>
+      <figcaption>Share of health spending</figcaption>
+    </figure>
+    <figure>
+      <svg id="popPie" viewBox="-50 -50 100 100"></svg>
+      <figcaption>Share of people</figcaption>
+    </figure>
+    <ul class="legend"></ul>
+  </div>
+
+  <p class="hint">Hover a wedge to compare a region across both pies. Click a wedge or legend item to list that region's countries. Click again to clear.</p>
+
+  <h2 id="listTitle"></h2>
+  <div class="countries"></div>
+</main>
+<script src="main.js"></script>
+</body>
+</html>
