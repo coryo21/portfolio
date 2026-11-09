@@ -10,7 +10,7 @@
 <body>
 <main>
   <h1>Dollars and Years</h1>
-  <p class="sub">Does spending more on health buy a longer life? The left pie splits the world's health spending by region. The right pie splits the world's people. Health spending is in PPP dollars. Source: World Bank WDI.</p>
+  <p class="sub">Does spending more on health buy a longer life? Health spending and life expectancy for 177 countries, 2000 to 2018. Source: World Bank World Development Indicators.</p>
 
   <div class="controls">
     <label>Year
@@ -19,23 +19,55 @@
     <input id="search" type="search" placeholder="Search countries">
   </div>
 
-  <div class="pies">
-    <figure>
-      <svg id="spendPie" viewBox="-50 -50 100 100"></svg>
-      <figcaption>Share of health spending</figcaption>
-    </figure>
-    <figure>
-      <svg id="popPie" viewBox="-50 -50 100 100"></svg>
-      <figcaption>Share of people</figcaption>
-    </figure>
-    <ul class="legend"></ul>
-  </div>
+  <p class="hint"><strong>Click a region</strong> in either pie or the legend to explore its countries. Click it again to clear. Hover a wedge to find that region in every chart.</p>
 
-  <p class="hint">Hover a wedge to compare a region across both pies. Click a wedge or legend item to list that region's countries. Click again to clear.</p>
+  <section>
+    <h2>Who spends the money, and who are the people?</h2>
+    <p class="note">Each region's share of total world health spending (spending per person times population) next to its share of the world's population. Life expectancy in the legend is the population weighted average for the region.</p>
+    <div class="pies">
+      <figure>
+        <svg id="spendPie" viewBox="-50 -50 100 100"></svg>
+        <figcaption>Share of health spending</figcaption>
+      </figure>
+      <figure>
+        <svg id="popPie" viewBox="-50 -50 100 100"></svg>
+        <figcaption>Share of people</figcaption>
+      </figure>
+      <ul class="legend"></ul>
+    </div>
+  </section>
 
-  <h2 id="listTitle"></h2>
-  <div class="countries"></div>
+  <section>
+    <h2>Does more spending mean a longer life?</h2>
+    <p class="note">Each dot is a country. Health spending per person in PPP dollars on a log scale, so the distance from $100 to $1,000 is the same as from $1,000 to $10,000. Dot area shows population. Countries missing spending, life expectancy, or population for a year are left out.</p>
+    <div id="scatter"></div>
+  </section>
+
+  <section>
+    <h2 id="listTitle"></h2>
+    <div class="countries"></div>
+  </section>
+
+  <article class="writeup">
+    <h2>Write-up</h2>
+
+    <h3>Motivation</h3>
+    <p>The United States spends more on health care per person than any other country, but it does not have the longest lives. I wanted to see whether that was just the US or a bigger pattern, so my question is whether spending more on health actually buys a longer life. I used the World Bank health indicators because they cover almost every country from 2000 to 2018.</p>
+
+    <h3>Design rationale</h3>
+    <p>The two pies show how unevenly the money is spread compared to the people. I picked pies because each one is a whole that adds up to 100 percent, and putting the two wholes side by side makes the mismatch easy to see. North America is about a third of the spending pie but a thin slice of the people pie. Both peer reviewers asked whether bars would compare better, and that is fair, but I kept the pies for the part to whole story and let the scatterplot carry the exact comparisons.</p>
+    <p>Both reviewers also pointed out that the pies never show life expectancy, which is the actual question. So I added the scatterplot. It uses position on a common scale for both spending and life expectancy because that is the most accurate channel from the lecture on visual encodings. Spending goes from under $10 to over $10,000 per person, so I used a log scale or almost every country would be squished against the left edge. Dot area shows population with a square root scale so a country with twice the people gets twice the area. Color hue shows region because region is nominal, and it is the same color in every chart so the views stay connected.</p>
+    <p>For interaction, the year menu lets you see how things changed from 2000 to 2018. Clicking a region filters the country list and fades every other region in the scatterplot. Hovering a wedge highlights that region everywhere. The search box highlights a country in the scatterplot and filters the cards, and hovering a dot shows the exact numbers. The pattern that pops out is that life expectancy climbs fast at low spending and then flattens, and the US sits well below countries like Japan and Costa Rica that spend much less.</p>
+    <p>I thought about a map, but geography is not the question and big countries would dominate it. An earlier prototype animated the scatterplot over time, but I dropped that to keep the project focused on one clear comparison.</p>
+
+    <h3>Data transformations</h3>
+    <p>I combined the World Bank health file with its country metadata to get each country's region, and I removed aggregate rows like World and income groups so only real countries are counted. I kept years 2000 to 2018 because that is where health spending in PPP dollars is available. For the pies, regional spending is spending per person times population, summed across the region. Regional life expectancy is weighted by population so China and India count more than small countries. Countries missing any of the values for a year are dropped for that year.</p>
+
+    <h3>Development process</h3>
+    <p>I did this project on my own, so I handled the data cleaning, the design, the code, and the deployment. I spent about 10 hours on it. The most time went into cleaning and joining the data and then linking the views so a click in one chart updates the others. After the checkpoint I posted the prototype to the class feedback discussion and used the two replies to add the click hint and the scatterplot. I used an AI coding assistant to help write and debug parts of the D3 code, which the course policy allows.</p>
+  </article>
 </main>
+<div id="tooltip" hidden></div>
 <script src="main.js"></script>
 </body>
 </html>

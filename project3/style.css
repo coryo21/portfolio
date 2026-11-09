@@ -17,10 +17,30 @@ figure { margin: 0; text-align: center; }
 figure svg { width: 260px; max-width: 100%; overflow: visible; }
 figcaption { font-weight: 600; margin-top: 6px; }
 
-path { transition: 300ms; cursor: pointer; stroke: var(--bg); stroke-width: 0.6; }
-path.faded { opacity: 0.3 !important; }
-path.dim { opacity: 0.25; }
-path.selected { stroke: var(--fg); stroke-width: 1.2; }
+section { margin-top: 28px; }
+h3 { font-size: 18px; margin: 20px 0 6px; }
+.note { color: var(--muted); font-size: 15px; max-width: 75ch; margin: 0 0 12px; }
+.hint { background: var(--card); padding: 8px 14px; border-radius: 8px; color: var(--fg); }
+
+.pies path { transition: 300ms; cursor: pointer; stroke: var(--bg); stroke-width: 0.6; }
+.pies path.faded { opacity: 0.3 !important; }
+.pies path.dim { opacity: 0.25; }
+.pies path.selected { stroke: var(--fg); stroke-width: 1.2; }
+
+#scatter svg { width: 100%; height: auto; overflow: visible; display: block; }
+#scatter .grid line { stroke: var(--line); }
+#scatter .grid path, #scatter .axis path { display: none; }
+#scatter .axis text { fill: var(--muted); font-size: 13px; }
+#scatter .axis-label { fill: var(--muted); font-size: 14px; }
+#scatter circle { stroke: var(--bg); stroke-width: 0.8; fill-opacity: 0.8; cursor: pointer; transition: opacity 300ms, r 300ms; }
+#scatter circle.dim { opacity: 0.12; }
+#scatter circle.match { stroke: var(--fg); stroke-width: 2.5; fill-opacity: 1; }
+#scatter .label { font-size: 13px; font-weight: 600; fill: var(--fg); paint-order: stroke; stroke: var(--bg); stroke-width: 3; pointer-events: none; }
+
+#tooltip { position: fixed; pointer-events: none; background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 6px; padding: 8px 12px; font-size: 14px; box-shadow: 0 2px 8px rgb(0 0 0 / 0.15); }
+
+.writeup { margin-top: 40px; border-top: 1px solid var(--line); padding-top: 8px; max-width: 75ch; }
+.writeup p { margin: 0 0 12px; }
 
 .legend { flex: 1; min-width: 260px; list-style: none; margin: 0; padding: 12px 16px; border: 1px solid var(--line); border-radius: 8px; display: grid; gap: 6px; }
 .legend li { display: grid; grid-template-columns: 14px 1fr auto; gap: 8px; align-items: center; cursor: pointer; font-size: 15px; padding: 2px 4px; border-radius: 4px; }
