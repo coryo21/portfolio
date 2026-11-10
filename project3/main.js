@@ -117,6 +117,7 @@ function hoverRegion(region) {
 function renderCountries(rows) {
   const container = document.querySelector(".countries");
   container.innerHTML = "";
+  if (selectedRegion === null && query.trim() === "") { document.querySelector("#listTitle").textContent = "Click a region or search to list countries"; return; }
   const title = selectedRegion ?? "All countries";
   document.querySelector("#listTitle").textContent = `${title}, ${year} (${rows.length} ${rows.length === 1 ? "country" : "countries"}, highest spending first)`;
   rows.sort((a, b) => b.s - a.s).forEach(d => {
